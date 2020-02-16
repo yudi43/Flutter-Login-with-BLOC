@@ -10,7 +10,7 @@ class Bloc extends Validators {
   Stream<String> get password =>
       _passwordController.stream.transform(validatePassword);
 
-  //Functions to change data
+  //returns functions to change data
   Function(String) get changeEmail => _emailController.sink.add;
   Function(String) get changePassword => _passwordController.sink.add;
 
