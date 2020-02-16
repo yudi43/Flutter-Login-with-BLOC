@@ -1,4 +1,4 @@
-# flutter_login_bloc
+# flutter_logic_bloc
 
 A new Flutter project.
 

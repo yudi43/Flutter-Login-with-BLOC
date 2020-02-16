@@ -1,4 +1,4 @@
-package com.example.flutter_login_bloc
+package com.example.flutter_logic_bloc
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity
