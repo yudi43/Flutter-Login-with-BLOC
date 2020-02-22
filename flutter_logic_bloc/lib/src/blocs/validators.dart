@@ -6,7 +6,7 @@ class Validators {
     if (email.contains('@')) {
       sink.add(email);
     } else {
-      sink.addError("Enter a valid emaul");
+      sink.addError("Enter a valid email");
     }
   });
 
