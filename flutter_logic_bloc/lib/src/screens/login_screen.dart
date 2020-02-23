@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_logic_bloc/src/blocs/bloc.dart';
 
+//Just import the bloc file here and we can use the instance for bloc that has been created there.
 class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -18,24 +20,36 @@ class LoginScreen extends StatelessWidget {
   }
 
   Widget emailField() {
-    return TextField(
-      keyboardType: TextInputType.emailAddress,
-      decoration: InputDecoration(
-        hintText: "you@example.com",
-        labelText: "Email Address",
-        errorText: "Invalid Email!",
-      ),
+    return StreamBuilder(
+      stream: bloc.email,
+      builder: (BuildContext context, AsyncSnapshot snapshot) {
+        return TextField(
+          onChanged: bloc.changeEmail,
+          keyboardType: TextInputType.emailAddress,
+          decoration: InputDecoration(
+            hintText: "you@example.com",
+            labelText: "Email Address",
+            errorText: snapshot.error,
+          ),
+        );
+      },
     );
   }
 
   Widget passwordField() {
-    return TextField(
-      obscureText: true,
-      decoration: InputDecoration(
-        hintText: "Password",
-        labelText: "Password",
-        errorText: "Invalid Password!",
-      ),
+    return StreamBuilder(
+      stream: bloc.password,
+      builder: (BuildContext context, AsyncSnapshot snapshot) {
+        return TextField(
+          onChanged: bloc.changePassword,
+          obscureText: true,
+          decoration: InputDecoration(
+            hintText: "Password",
+            labelText: "Password",
+            errorText: snapshot.error,
+          ),
+        );
+      },
     );
   }
 

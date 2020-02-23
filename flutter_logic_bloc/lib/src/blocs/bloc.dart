@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'validators.dart';
 
-class Bloc extends Validators {
+class Bloc extends Object with Validators {
   final _emailController = StreamController<String>();
   final _passwordController = StreamController<String>();
 
@@ -19,3 +19,5 @@ class Bloc extends Validators {
     _passwordController.close();
   }
 }
+//Here we are using a single instance of the bloc class all over the app.
+final bloc = Bloc();
