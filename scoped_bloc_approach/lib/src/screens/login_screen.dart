@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_logic_bloc/src/blocs/bloc.dart';
+import 'package:scoped_bloc_approach/src/blocs/bloc.dart';
 
 //Just import the bloc file here and we can use the instance for bloc that has been created there.
 class LoginScreen extends StatelessWidget {
