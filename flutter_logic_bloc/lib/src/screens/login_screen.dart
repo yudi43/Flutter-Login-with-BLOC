@@ -19,6 +19,7 @@ class LoginScreen extends StatelessWidget {
     );
   }
 
+  //We are using one single instance of bloc that has been inititated in the Bloc class...
   Widget emailField() {
     return StreamBuilder(
       stream: bloc.email,
