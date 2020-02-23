@@ -19,5 +19,3 @@ class Bloc extends Object with Validators {
     _passwordController.close();
   }
 }
-//Here we are using a single instance of the bloc class all over the app.
-final bloc = Bloc();

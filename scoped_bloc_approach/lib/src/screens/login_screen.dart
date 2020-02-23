@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:scoped_bloc_approach/src/blocs/bloc.dart';
+import 'package:scoped_bloc_approach/src/blocs/provider.dart';
 
-//Just import the bloc file here and we can use the instance for bloc that has been created there.
 class LoginScreen extends StatelessWidget {
+  //Go up the widget tree and find for nearest provider
   @override
   Widget build(BuildContext context) {
+    final bloc = Provider.of(context);
     return Container(
       margin: EdgeInsets.all(20.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          emailField(),
-          passwordField(),
+          emailField(bloc),
+          passwordField(bloc),
           Container(margin: EdgeInsets.only(top: 25)),
           submitButton(),
         ],
@@ -19,8 +21,7 @@ class LoginScreen extends StatelessWidget {
     );
   }
 
-  //We are using one single instance of bloc that has been inititated in the Bloc class...
-  Widget emailField() {
+  Widget emailField(Bloc bloc) {
     return StreamBuilder(
       stream: bloc.email,
       builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -37,7 +38,7 @@ class LoginScreen extends StatelessWidget {
     );
   }
 
-  Widget passwordField() {
+  Widget passwordField(Bloc bloc) {
     return StreamBuilder(
       stream: bloc.password,
       builder: (BuildContext context, AsyncSnapshot snapshot) {
